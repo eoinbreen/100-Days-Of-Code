@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb83ae6e-7818-43cf-9696-2b028ad0abfc" name="Changes" comment="" />
+    <list default="true" id="a91024cd-55f3-4efc-b777-a357f2b9ff1e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,21 +13,20 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2IsEwa4sQ4lnzwSHRZRHFy1gGtU" />
+  <component name="ProjectId" id="2JUuhimc5hrWn3wqBzLhk9SDIHz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Python/Tutorials/100 Days of Code/Day 15 - Development Environment Setup/CoffeeMachine&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="CoffeeMachine" />
+      <module name="Quiz-Game" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -54,11 +50,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="eb83ae6e-7818-43cf-9696-2b028ad0abfc" name="Changes" comment="" />
-      <created>1670962130457</created>
+      <changelist id="a91024cd-55f3-4efc-b777-a357f2b9ff1e" name="Changes" comment="" />
+      <created>1672145103055</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1670962130457</updated>
+      <updated>1672145103055</updated>
     </task>
     <servers />
   </component>
