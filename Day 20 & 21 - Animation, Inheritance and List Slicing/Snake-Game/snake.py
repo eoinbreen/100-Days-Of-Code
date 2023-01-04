@@ -1,13 +1,18 @@
 from turtle import Turtle   # https://docs.python.org/3/library/turtle.html
 
-STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
+STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]  # Starting positions of the first segments
 MOVE_DISTANCE = 20
+UP = 90  # Headings
+DOWN = 270
+LEFT = 180
+RIGHT = 0
 
 
 class Snake:
     def __init__(self):
         self.segments = []
         self.create_snake()
+        self.head = self.segments[0]
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
@@ -22,4 +27,20 @@ class Snake:
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y) # Make segment move to the position of the segment in front of it
-        self.segments[0].forward(MOVE_DISTANCE)
+        self.head.forward(MOVE_DISTANCE)
+
+    def up(self):
+        if self.head.heading() != DOWN:  # Make sure snake cant reverse
+            self.head.setheading(UP)
+
+    def down(self):
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
+
+    def left(self):
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
+
+    def right(self):
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
