@@ -13,6 +13,7 @@ class Snake:
         self.segments = []
         self.create_snake()
         self.head = self.segments[0]
+        self.body = self.segments[1:]  # List Slicing - takes all but first entry in list
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
