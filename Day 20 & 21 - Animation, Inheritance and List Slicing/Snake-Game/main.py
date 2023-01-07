@@ -1,6 +1,7 @@
-from turtle import Screen, Turtle  # https://docs.python.org/3/library/turtle.html
+from turtle import Screen # https://docs.python.org/3/library/turtle.html
 import time
 from snake import Snake
+from food import Food
 
 screen = Screen()
 screen.setup(height=600, width=600)
@@ -8,6 +9,7 @@ screen.bgcolor("black")
 screen.title("Snake")
 
 snake = Snake()
+food = Food()
 
 screen.listen()
 screen.onkey(snake.up, "Up")
@@ -21,5 +23,7 @@ while game_on:
     time.sleep(0.1)
     snake.move()
 
+    if snake.head.distance(food) < 15:
+        food.refresh()
 
 screen.exitonclick()
