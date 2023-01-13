@@ -20,4 +20,6 @@ car_timer = 6
 while game_is_on:
     time.sleep(0.1)
     screen.update()
-
+    if player.ycor() > 260:
+        scoreboard.increase_level()
+        player.reset_position()

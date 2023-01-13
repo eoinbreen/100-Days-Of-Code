@@ -16,3 +16,6 @@ class Player(Turtle):
     def up(self):
         new_y = self.ycor() + MOVE_DISTANCE
         self.goto(self.xcor(), new_y)
+
+    def reset_position(self):
+        self.goto(STARTING_POSITION)
