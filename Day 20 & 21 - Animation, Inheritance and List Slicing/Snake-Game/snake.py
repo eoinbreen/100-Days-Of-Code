@@ -29,6 +29,15 @@ class Snake:
         self.segments.append(new_segment)
         new_segment.showturtle()
 
+    def reset(self):
+        for segment in self.segments:
+            segment.goto(1000, 1000)  # Make all segments leave the screen
+
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+        self.body = self.segments[1:]  # List Slicing - takes all but first entry in list
+
     def extend(self):
         self.add_segment(self.segments[-1].position())
 
