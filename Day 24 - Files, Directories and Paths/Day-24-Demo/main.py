@@ -7,3 +7,7 @@ with open("new_file.txt", mode="a") as file:  # Append Mode
 with open("new_file.txt", mode="r") as file:  # Read Mode
     contents = file.read()
     print(contents)
+
+with open("../../Day 20 & 21 - Animation, Inheritance and List Slicing/Snake-Game/high_score.txt", mode="r") as file:  # Relative Location
+    contents = file.read()
+    print(f"The High Score in the Snake Game is {contents}")
