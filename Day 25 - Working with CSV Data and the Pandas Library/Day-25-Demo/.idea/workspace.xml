@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5f05041-6a03-49f4-8718-538ef918b1c6" name="Changes" comment="" />
+    <list default="true" id="ccddce34-c68a-4f76-8152-94408555f77b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +16,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2KMlIjDAW1Hb2woR54A5rZSueIK" />
+  <component name="ProjectId" id="2KSqWbbp5fEYHo0DQJ20QQ7KAsu" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -24,13 +24,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "F:/Python/Tutorials/100 Days of Code/Day 25 - Working with CSV Data and the Pandas Library"
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Python\Tutorials\100 Days of Code\Day 25 - Working with CSV Data and the Pandas Library\Day-25-Demo" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="Day-24-Demo" />
+      <module name="Day-25-Demo" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -54,11 +58,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c5f05041-6a03-49f4-8718-538ef918b1c6" name="Changes" comment="" />
-      <created>1673792254432</created>
+      <changelist id="ccddce34-c68a-4f76-8152-94408555f77b" name="Changes" comment="" />
+      <created>1673978363706</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1673792254432</updated>
+      <updated>1673978363706</updated>
     </task>
     <servers />
   </component>
