@@ -35,10 +35,25 @@ import pandas  # https://pandas.pydata.org/docs/
 #
 # print(f"Monday's Temperature is {mon_celsius} degrees Celsius or {mon_fahrenheit} degrees Fahrenheit")
 
-# Creating a Data Frame and a CSV File
-data_dict = {
-    "students": ["Amy", "James", "Angela"],
-    "scores": [76, 56, 65]
+# # Creating a Data Frame and a CSV File
+# data_dict = {
+#     "students": ["Amy", "James", "Angela"],
+#     "scores": [76, 56, 65]
+# }
+# data = pandas.DataFrame(data_dict)
+# data.to_csv("new_data.csv")
+
+data = pandas.read_csv("Squirrel_Data.csv")
+fur_color_list = data["Primary Fur Color"].to_list()
+red_count = fur_color_list.count("Cinnamon")
+gray_count = fur_color_list.count("Gray")
+black_count = fur_color_list.count("Black")
+
+fur_color_dict = {
+    "Fur Color":["Red", "Gray", "Black"],
+    "Count": [red_count, gray_count, black_count]
 }
-data = pandas.DataFrame(data_dict)
-data.to_csv("new_data.csv")
+
+fur_color_data = pandas.DataFrame(fur_color_dict)
+fur_color_data.to_csv("Fur_Color.csv")
+
