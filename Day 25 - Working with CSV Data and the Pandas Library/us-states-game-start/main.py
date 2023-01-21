@@ -28,8 +28,6 @@ while len(guessed_states) < 50 and answer_state != "Exit":
         guessed_states.append(answer_state)
 
 # find the states you missed and put them into a CSV file to learn for the next time you play
-for state in guessed_states:
-    states.remove(state)
-
-states_to_learn = pandas.DataFrame(states)
+forgotten_states = [state for state in states if state not in guessed_states]  # List Comprehension
+states_to_learn = pandas.DataFrame(forgotten_states)
 states_to_learn.to_csv("states_to_learn.csv")
