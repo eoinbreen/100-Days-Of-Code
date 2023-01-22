@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="646503a5-3e19-4075-932b-35dec2e5b6b4" name="Changes" comment="" />
+    <list default="true" id="6b893e47-82fe-4516-869a-d5b4d1083812" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +16,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2KdNN4on1NGbZQuYJAvAKzNPKou" />
+  <component name="ProjectId" id="2KgyjqRQKBOtN6G5myfAT2pO6xk" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,37 +28,14 @@
     "last_opened_file_path": "F:/Python/Tutorials/100 Days of Code/Day 26 - List Comprehension and the NATO alphabet/NATO-alphabet-start"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="Day-26-Demo" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="646503a5-3e19-4075-932b-35dec2e5b6b4" name="Changes" comment="" />
-      <created>1674300456116</created>
+      <changelist id="6b893e47-82fe-4516-869a-d5b4d1083812" name="Changes" comment="" />
+      <created>1674410658452</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1674300456116</updated>
+      <updated>1674410658452</updated>
     </task>
     <servers />
   </component>
