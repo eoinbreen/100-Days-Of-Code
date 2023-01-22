@@ -1,3 +1,7 @@
+import random
+import pandas
+
+# List Comprehension
 numbers = [1, 2, 3]
 new_numbers = [n + 1 for n in numbers]
 
@@ -13,4 +17,10 @@ names = ["Alex", "Beth", "Caroline", "Dave", "Eleanor", "Freddie"]
 short_names = [name for name in names if len(name) <= 4]
 long_caps = [name.upper() for name in names if len(name) >= 5]
 
-print(long_caps)
+
+# Dictionary Comprehension
+students_scores = {student: random.randint(1, 100) for student in names}
+
+passed_students = {student: score for (student, score) in students_scores.items() if score >= 60}
+
+
