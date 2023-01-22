@@ -43,17 +43,27 @@ import pandas  # https://pandas.pydata.org/docs/
 # data = pandas.DataFrame(data_dict)
 # data.to_csv("new_data.csv")
 
-data = pandas.read_csv("Squirrel_Data.csv")
-fur_color_list = data["Primary Fur Color"].to_list()
-red_count = fur_color_list.count("Cinnamon")
-gray_count = fur_color_list.count("Gray")
-black_count = fur_color_list.count("Black")
+# data = pandas.read_csv("Squirrel_Data.csv")
+# fur_color_list = data["Primary Fur Color"].to_list()
+# red_count = fur_color_list.count("Cinnamon")
+# gray_count = fur_color_list.count("Gray")
+# black_count = fur_color_list.count("Black")
+#
+# fur_color_dict = {
+#     "Fur Color":["Red", "Gray", "Black"],
+#     "Count": [red_count, gray_count, black_count]
+# }
+#
+# fur_color_data = pandas.DataFrame(fur_color_dict)
+# fur_color_data.to_csv("Fur_Color.csv")
 
-fur_color_dict = {
-    "Fur Color":["Red", "Gray", "Black"],
-    "Count": [red_count, gray_count, black_count]
+# Iterating Through Pandas Library
+student_dict = {
+    "student": ["Eoin", "James", "Lily"],
+    "score": [56, 76, 98]
 }
 
-fur_color_data = pandas.DataFrame(fur_color_dict)
-fur_color_data.to_csv("Fur_Color.csv")
+student_data_frame = pandas.DataFrame(student_dict)
 
+for (index, row) in student_data_frame.iterrows():
+    print(row.student)
