@@ -8,13 +8,25 @@ YELLOW = "#f7f5dd"
 FONT = ("Consolas", 35, "bold")
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+LONG_BREAK_MIN = 30
 CHECKMARK = "✔"
 
+timer = None
 reps = 0
-# ---------------------------- TIMER RESET ------------------------------- # 
+# ---------------------------- TIMER RESET ------------------------------- #
+
+
+def reset_timer():
+    global reps
+    window.after_cancel(timer)
+    reps = 0
+    title_label["text"] = "Timer"
+    title_label["fg"] = GREEN
+    canvas.itemconfig(timer_text, text="00:00")
+    checkmark_label["text"] = ""
 
 # ---------------------------- TIMER MECHANISM ------------------------------- #
+
 
 
 def start_timer():
@@ -25,7 +37,6 @@ def start_timer():
         count_down(LONG_BREAK_MIN * 60)
         title_label["text"] = "Break"
         title_label["fg"] = RED
-        checkmark_label["text"] = ""
     elif reps % 2 == 0:
         count_down(SHORT_BREAK_MIN * 60)
         title_label["text"] = "Break"
@@ -40,6 +51,7 @@ def start_timer():
 
 
 def count_down(count):
+    global timer
     count_min = int(count/60)
     count_secs = count % 60
 
@@ -48,7 +60,7 @@ def count_down(count):
 
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_secs}")
     if count > 0:
-        window.after(1, count_down, count - 1)  # 1000 for timer
+        timer = window.after(1, count_down, count - 1)  # 1000 for timer
     else:
         start_timer()
 
@@ -69,23 +81,15 @@ timer_text = canvas.create_text(100, 130, text="00:00", fill="white", font=FONT)
 canvas.grid(column=1, row=1)
 
 
-def start():
-    start_timer()
-
-
-start_button = Button(text="Start", command=start)
+start_button = Button(text="Start", command=start_timer)
 start_button.grid(column=0, row=2)
 
 
-def reset():
-    pass
-
-
-reset_button = Button(text="Reset", command=reset)
+reset_button = Button(text="Reset", command=reset_timer)
 reset_button.grid(column=2, row=2)
 
 
-checkmark_label = Label(text="", bg=YELLOW, fg=GREEN)
+checkmark_label = Label(bg=YELLOW, fg=GREEN)
 checkmark_label.grid(column=1, row=3)
 
 window.mainloop()
