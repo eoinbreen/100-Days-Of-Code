@@ -8,8 +8,14 @@ def generate_password():
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 
-def save_password():
-    pass
+def add():
+    website = website_input.get()
+    username = username_input.get()
+    password = password_input.get()
+    with open("data.txt", mode="a") as data:
+        data.write(f"{website} | {username} | {password}\n")
+    website_input.delete(0, END)
+    password_input.delete(0, END)
 # ---------------------------- UI SETUP ------------------------------- #
 
 
@@ -28,12 +34,14 @@ website_label.grid(column=0, row=1)
 
 website_input = Entry()
 website_input.grid(column=1, row=1, columnspan=2, sticky="EW")  # Sticky sticks widget to east and west edges of column
+website_input.focus()
 
 username_label = Label(text="Email/Username:")
 username_label.grid(column=0, row=2)
 
 username_input = Entry()
 username_input.grid(column=1, row=2, columnspan=2, sticky="EW")
+username_input.insert(0, "e.breen185@gmail.com")
 
 password_label = Label(text="Password:")
 password_label.grid(column=0, row=3)
@@ -41,10 +49,10 @@ password_label.grid(column=0, row=3)
 password_input = Entry()
 password_input.grid(column=1, row=3, sticky="EW")
 
-generate_password_button = Button(text="Generate Password")
+generate_password_button = Button(text="Generate Password", command=generate_password)
 generate_password_button.grid(column=2, row=3, sticky="EW")
 
-save_password_button = Button(text="Add")
+save_password_button = Button(text="Add", command=add)
 save_password_button.grid(column=1, row=4, columnspan=2, sticky="EW")
 
 
