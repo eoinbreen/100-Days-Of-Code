@@ -1,6 +1,20 @@
 # File not Found
-with open("file.txt") as file:
-    file.read()
+try:
+    file = open("file.txt")
+    dictionary = {"Key": "Value"}
+    value = dictionary["Key"]
+except FileNotFoundError:
+    file = open("file.txt", "w")
+    file.write("Something")
+except KeyError as error_message:
+    print(f"The key {error_message} does not exist in the dictionary")
+else:
+    content = file.read()
+    print(content)
+finally:
+    file.close()
+    print("File now closed")
+
 
 # Key Error
 # dictionary = {"Key": "Value"}
