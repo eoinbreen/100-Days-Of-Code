@@ -1,10 +1,29 @@
 from tkinter import *  # https://docs.python.org/3/library/tkinter.html#    http://tcl.tk/man/tcl8.6/TkCmd/entry.htm
 from tkinter import messagebox
+import random
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 
 def generate_password():
-    pass
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+               'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+               'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+    num_letters = random.randint(8, 10)
+    num_symbols = random.randint(2, 4)
+    num_numbers = random.randint(2, 4)
+
+    char_list = [random.choice(letters) for n in range(num_letters)]
+    symbol_list = [random.choice(symbols) for n in range(num_symbols)]
+    number_list = [random.choice(numbers) for n in range(num_numbers)]
+    password_list = char_list + symbol_list + number_list
+
+    random.shuffle(password_list)
+    password = "".join(password_list)
+
+    password_input.insert(0, password)
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
