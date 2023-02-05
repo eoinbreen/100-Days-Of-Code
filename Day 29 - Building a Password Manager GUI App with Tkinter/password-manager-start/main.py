@@ -6,6 +6,22 @@ import json
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 
+def find_details():
+    website = website_input.get()
+    try:  # Use try if you think an exception may be raised by the code
+        with open("data.json", mode="r") as data_file:
+            data = json.load(data_file)  # Reading data
+    except FileNotFoundError:
+        messagebox.showwarning(title="Error", message="No Data File Found.")
+    else:
+        if website in data:
+            info = data[website]
+            messagebox.showinfo(title=f"{website}",
+                                message=f"These are the details found for {website}:\nUsername: "
+                                        f"{info['username']} \nPassword: {info['password']} \n")
+        else:
+            messagebox.showwarning(title="Error", message=f"No details for {website} exist")
+
 def generate_password():
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
                'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
@@ -79,8 +95,11 @@ website_label = Label(text="Website:")
 website_label.grid(column=0, row=1)
 
 website_input = Entry()
-website_input.grid(column=1, row=1, columnspan=2, sticky="EW")  # Sticky sticks widget to east and west edges of column
+website_input.grid(column=1, row=1, sticky="EW")  # Sticky sticks widget to east and west edges of column
 website_input.focus()
+
+search_button = Button(text="Search", command=find_details)
+search_button.grid(column=2, row=1, sticky="EW")
 
 username_label = Label(text="Email/Username:")
 username_label.grid(column=0, row=2)
