@@ -9,7 +9,7 @@ recipient = "eoinbreen185@yahoo.com"
 
 now = dt.datetime.now()
 day = now.weekday()
-if day == 5:
+if day == 0:
     with open("quotes.txt", "r") as file:
         quotes = file.readlines()
     quote = random.choice(quotes)
