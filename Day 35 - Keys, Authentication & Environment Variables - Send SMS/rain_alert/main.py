@@ -1,13 +1,12 @@
 import requests  # https://docs.python-requests.org/en/latest/
-
+import config
 MY_LAT = 52.545240  # Gotten from latlong.net
 MY_LONG = -6.317470
-API_KEY = "92563217cfeaac5386ccacf77069664e"
 
 parameters = {
     "lat": MY_LAT,
     "lon": MY_LONG,
-    "appid": API_KEY,
+    "appid": config.API_KEY,
     "cnt": 4
 }
 
