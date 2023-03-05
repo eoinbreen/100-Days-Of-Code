@@ -1,4 +1,4 @@
-import config
+
 import requests  # https://docs.python-requests.org/en/latest/
 import os
 from twilio.rest import Client
@@ -6,13 +6,21 @@ from twilio.rest import Client
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
+STOCK_KEY = os.environ.get("STOCK_KEY")
+NEWS_KEY = os.environ.get("NEWS_KEY")
+
+TWILIO_NUMBER = "+15673131224"
+MY_NUMBER = "+3530876544958"
+TWILIO_SID = os.environ.get("TWILIO_SID")
+TWILIO_TOKEN = os.environ.get("TWILIO_TOKEN")
+
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
 stock_parameters = {
     "function": "TIME_SERIES_DAILY_ADJUSTED",
     "symbol": STOCK,
     "outputsize": "compact",
-    "apikey": config.STOCK_KEY
+    "apikey": STOCK_KEY
 
 }
 response = requests.get("https://www.alphavantage.co/query?", params=stock_parameters)
@@ -35,25 +43,25 @@ if abs(diff_percent) > 1:
     news_parameters = {
         "q": COMPANY_NAME,
         "searchIn": "title",
-        "apiKey": config.NEWS_KEY
+        "apiKey": NEWS_KEY
     }
 
     response = requests.get("https://newsapi.org/v2/everything?", params=news_parameters)
     response.raise_for_status()
     data = response.json()["articles"]
-    articles = {f"{STOCK}: {up_down}{diff_percent}% \nHeadline: {data[n]['title']}. \nBrief: {data[n]['description']}. \n" for n in range(3)}
+    articles = [f"{STOCK}: {up_down}{diff_percent}% \nHeadline: {data[n]['title']}. \nBrief: {data[n]['description']}. \n" for n in range(3)]
 
 
     for article in articles:
-        account_sid = config.TWILIO_SID  # os.environ['TWILIO_ACCOUNT_SID']
-        auth_token = config.TWILIO_TOKEN  # os.environ['TWILIO_AUTH_TOKEN']
+        account_sid = TWILIO_SID  # os.environ['TWILIO_ACCOUNT_SID']
+        auth_token = TWILIO_TOKEN  # os.environ['TWILIO_AUTH_TOKEN']
         client = Client(account_sid, auth_token)
 
         message = client.messages \
             .create(
                 body=article,
-                from_=config.TWILIO_NUMBER,
-                to=config.MY_NUMBER
+                from_=TWILIO_NUMBER,
+                to=MY_NUMBER
     )
 
 
