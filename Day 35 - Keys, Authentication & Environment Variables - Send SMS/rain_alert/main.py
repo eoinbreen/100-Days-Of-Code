@@ -1,7 +1,11 @@
 import requests  # https://docs.python-requests.org/en/latest/
 import config
+import os
+from twilio.rest import Client
+
 MY_LAT = 52.545240  # Gotten from latlong.net
 MY_LONG = -6.317470
+API_KEY = os.environ.get("API_KEY")
 
 parameters = {
     "lat": MY_LAT,
@@ -22,4 +26,13 @@ for n in range(len(data["list"])):
 for weather in weather_data:
     id_code = weather[0]["id"]
     if id_code < 700:
-        print("Bring an Umbrella")
+        account_sid = os.environ['TWILIO_ACCOUNT_SID']
+        auth_token = os.environ['TWILIO_AUTH_TOKEN']
+        client = Client(account_sid, auth_token)
+
+        message = client.messages \
+            .create(
+            body="Bring an Umbrella.",
+            from_='+15673131224',
+            to='+3530876544958'
+        )
