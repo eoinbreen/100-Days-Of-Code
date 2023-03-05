@@ -1,6 +1,7 @@
 import config
 import requests  # https://docs.python-requests.org/en/latest/
-
+import os
+from twilio.rest import Client
 
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
@@ -20,10 +21,15 @@ data = response.json()["Time Series (Daily)"]
 closing_prices = [data[key]["4. close"] for key in list(data)[:2]]
 yesterday = float(closing_prices[0])
 two_days_ago = float(closing_prices[1])
-difference = abs(yesterday - two_days_ago)
-diff_percent = (difference / two_days_ago) * 100
+difference = yesterday - two_days_ago
+diff_percent = round((difference / two_days_ago) * 100)
+up_down = None
+if difference > 0:
+    up_down = "🔺"
+else:
+    up_down = "🔻"
 
-if diff_percent > 1:
+if abs(diff_percent) > 1:
     # STEP 2: Use https://newsapi.org
     # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
     news_parameters = {
@@ -35,9 +41,21 @@ if diff_percent > 1:
     response = requests.get("https://newsapi.org/v2/everything?", params=news_parameters)
     response.raise_for_status()
     data = response.json()["articles"]
-    three_articles = {data[n]["title"]: data[n]["content"] for n in range(3)}
-    for title in three_articles:
-        print(f"{title} - {three_articles[title]}")
+    articles = {f"{STOCK}: {up_down}{diff_percent}% \nHeadline: {data[n]['title']}. \nBrief: {data[n]['description']}. \n" for n in range(3)}
+
+
+    for article in articles:
+        account_sid = config.TWILIO_SID  # os.environ['TWILIO_ACCOUNT_SID']
+        auth_token = config.TWILIO_TOKEN  # os.environ['TWILIO_AUTH_TOKEN']
+        client = Client(account_sid, auth_token)
+
+        message = client.messages \
+            .create(
+                body=article,
+                from_=config.TWILIO_NUMBER,
+                to=config.MY_NUMBER
+    )
+
 
 
 
