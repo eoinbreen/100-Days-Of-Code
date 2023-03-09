@@ -1,11 +1,13 @@
 import requests
+from datetime import datetime
 
 USERNAME = "eoinbreen"
 TOKEN = "12345678"
 GRAPH_ID = "steps"
 
-pixela_endpoint = "https://pixe.la/v1/users"
 
+# CREATING THE USER
+pixela_endpoint = "https://pixe.la/v1/users"
 user_params = {
     "token": TOKEN,
     "username": USERNAME,
@@ -15,6 +17,8 @@ user_params = {
 
 # response = requests.post(url=pixela_endpoint, json=user_params) # Creating Username
 
+
+# CREATING THE GRAPH
 
 graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
 graph_params = {
@@ -29,16 +33,29 @@ headers = {
 }
 # requests.post(url=graph_endpoint, json=graph_params, headers=headers)  # Creating Grid
 
-html_endpoint = f"https://pixe.la/v1/users/{USERNAME}/graphs/{GRAPH_ID}"
+# ADDING DATA TO GRAPH
+
+# https://pixe.la/v1/users/eoinbreen/graphs/steps.html
+html_endpoint = f"{graph_endpoint}/{GRAPH_ID}"
+
+today = datetime.now()
 
 html_params = {
-    "date": "20230306",
-    "quantity": "12655"
+    "date": "20230308",  # today.strftime("%Y%m%d")
+    "quantity": "13650"
 }
 
-response = requests.post(url=html_endpoint, json=html_params, headers=headers)
+# response = requests.post(url=html_endpoint, json=html_params, headers=headers)
+
+update_endpoint = f"{html_endpoint}/20230308"
+put_params = {
+    "quantity": "14000"
+}
+# response = requests.put(url=update_endpoint, json=put_params, headers=headers)  # PUTTING (UPDATING) A PIXEL
+# response = requests.delete(url=update_endpoint, headers=headers)  # DELETING A PIXEL
+response = requests.get(url=update_endpoint, headers=headers)  # GETTING DATA FROM A PIXEL
 print(response.text)
-# https://pixe.la/v1/users/eoinbreen/graphs/steps
+
 
 
 
