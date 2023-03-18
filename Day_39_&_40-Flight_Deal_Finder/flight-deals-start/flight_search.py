@@ -2,6 +2,7 @@ import requests
 import os
 TEQUELA_ENDPOINT = "https://api.tequila.kiwi.com"
 TEQUELA_KEY = os.environ.get("TEQUELA_KEY")
+DUBLIN = "DUB"
 class FlightSearch:
     #This class is responsible for talking to the Flight Search API.
 
@@ -20,3 +21,24 @@ class FlightSearch:
         iata_code = results[0]["code"]
         return iata_code
 
+
+    def get_prices(self):
+        search_endpoint = f"{TEQUELA_ENDPOINT}/v2/search"
+        headers = {
+            "apikey": TEQUELA_KEY
+        }
+        params = {
+            "fly_from": DUBLIN,
+            "fly_to": "PAR",
+            "dateFrom": "18/03/2023",
+            "dateTo": "18/09/2023",
+            "sort": "price",
+        }
+        response = requests.get(url=search_endpoint, params=params, headers=headers)
+        response.raise_for_status()
+        lowest_price = response.json()["data"][0]["price"]
+        city = response.json()["data"][0]["cityTo"]
+        return f"{city} : €{lowest_price}"
+
+flight_searcher = FlightSearch()
+print(flight_searcher.get_prices())
