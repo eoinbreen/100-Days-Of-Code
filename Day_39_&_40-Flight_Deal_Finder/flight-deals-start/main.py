@@ -5,11 +5,13 @@ from pprint import pprint
 
 data_manager = DataManager()
 flight_searcher = FlightSearch()
-sheet_data = data_manager.get_data()
+sheet_data = data_manager.get_destination_data()
 for data in sheet_data:
     if data["iataCode"] == "":
         data["iataCode"] = flight_searcher.get_iata_code(data["city"])
-        data_manager.set_data(row=data["id"], key="iataCode", value=data["iataCode"])
+
+data_manager.destination_data = sheet_data
+data_manager.update_destination_codes()
 
 # pprint(sheet_data)
 

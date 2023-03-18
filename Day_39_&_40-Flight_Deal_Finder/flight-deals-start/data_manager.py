@@ -6,18 +6,23 @@ SHEETY_ENDPOINT = os.environ.get("SHEETY_ENDPOINT")
 
 class DataManager:
     # This class is responsible for talking to the Google Sheet.
-    def get_data(self):
-        response = requests.get(url=SHEETY_ENDPOINT)
-        return response.json()["prices"]
+    def __init__(self):
+        self.destination_data = {}
 
-    def set_data(self, row, key, value):
-        put_endpoint = f"{SHEETY_ENDPOINT}/{row}"
-        params = {
-            "price": {
-                key: value
+    def get_destination_data(self):
+        response = requests.get(url=SHEETY_ENDPOINT)
+        self.destination_data = response.json()["prices"]
+        return self.destination_data
+
+    def update_destination_codes(self):
+        for city in self.destination_data:
+            put_endpoint = f"{SHEETY_ENDPOINT}/{city['id']}"
+            params = {
+                "price": {
+                    'iataCode': city["iataCode"]
+                }
             }
-        }
-        response = requests.put(url=put_endpoint, json=params)
-        # print(response.text)
+            response = requests.put(url=put_endpoint, json=params)
+            print(response.text)
 
 
