@@ -1,11 +1,12 @@
+# Document - https://docs.google.com/spreadsheets/d/1UEFU-HJS_Uz-TRXC4q7pnMqTj4kOssJ1sZzkIT9-MeM/edit#gid=0
 from data_manager import DataManager
 from flight_search import FlightSearch
+from notification_manager import NotificationManager
 from flight_data import FlightData
-
 from datetime import datetime
 from datetime import timedelta
-from pprint import pprint
-#This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
+
+# This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
 ORIGIN_CITY_IATA = "DUB"
 data_manager = DataManager()
 flight_searcher = FlightSearch()
@@ -20,10 +21,12 @@ if sheet_data[0]["iataCode"] == "":
 tomorrow = datetime.now() + timedelta(days=1)
 six_month_from_today = datetime.now() + timedelta(days=(6 * 30))
 
+
 for data in sheet_data:
-    flight = flight_searcher.get_lowest_price(origin_city_code=ORIGIN_CITY_IATA,destination_city_code=data["iataCode"],
+    flight = flight_searcher.get_lowest_price(origin_city_code=ORIGIN_CITY_IATA, destination_city_code=data["iataCode"],
                                               from_time=tomorrow, to_time=six_month_from_today)
-
-# pprint(sheet_data)
-
+    if flight is not None:
+        if flight.price < data["lowestPrice"]:
+            notification_manager = NotificationManager(flight)
+            notification_manager.send_notification()
 
