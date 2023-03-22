@@ -18,7 +18,7 @@ class DataManager:
             put_endpoint = f"{SHEETY_ENDPOINT}/{city['id']}"
             params = {
                 "price": {
-                    'iataCode': city["iataCode"]
+                    "iataCode": city["iataCode"]
                 }
             }
             response = requests.put(url=put_endpoint, json=params)
