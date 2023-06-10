@@ -1,0 +1,22 @@
+html{
+
+    color: white;
+    background-color:black;
+}
+
+.content{
+    font-family: 'Libre Baskerville', serif;
+    text-align: center;
+    margin-top: 50px;
+    width: 50%;
+    margin-left: 25%
+}
+.mewtwo{
+    width: 100%;
+    border: 5px solid white;
+}
+
+h1{
+    font-size: 3rem;
+    text-transform: uppercase;
+}

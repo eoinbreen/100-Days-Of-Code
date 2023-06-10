@@ -5,7 +5,7 @@ from notification_manager import NotificationManager
 from flight_data import FlightData
 
 # This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
-ORIGIN_CITY_IATA = "LON"
+ORIGIN_CITY_IATA = "DUB"
 data_manager = DataManager()
 flight_searcher = FlightSearch()
 sheet_data = data_manager.get_destination_data()
