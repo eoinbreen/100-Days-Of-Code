@@ -9,16 +9,27 @@ driver = webdriver.Chrome()
 # price = driver.find_element(By.CLASS_NAME, "a-price-whole")
 # print("Price: " + price.text)
 
+driver.get("https://www.python.org/")
 
-# driver.get("https://www.python.org/")
 # searchbar = driver.find_element(By.NAME, "q")
 # print(searchbar.get_attribute("placeholder"))
 
-# driver.get("https://www.python.org/")
 # link = driver.find_element(By.CSS_SELECTOR, ".documentation-widget a")
 # print(link.text)
 
+# xpath = driver.find_element(By.XPATH, "//*[@id='site-map']/div[2]/div/ul/li[3]/a")
+# print(xpath.text)
 
-driver.get("https://www.python.org/")
-xpath = driver.find_element(By.XPATH, "//*[@id='site-map']/div[2]/div/ul/li[3]/a")
-print(xpath.text)
+dates = driver.find_elements(By.CSS_SELECTOR, ".event-widget time")
+events = driver.find_elements(By.CSS_SELECTOR, ".event-widget li>a")
+
+event_dictionary = {}
+
+for n in range(len(events)):
+    new_dict = {
+        "time": dates[n].text,
+        "name": events[n].text
+    }
+    event_dictionary[n] = new_dict
+
+print(event_dictionary)
