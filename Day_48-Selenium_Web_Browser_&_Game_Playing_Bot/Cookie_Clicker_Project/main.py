@@ -2,6 +2,22 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
+print("Hello, I am the Cookie Clicker Bot, I play the Cookie Clicker game")
+
+runtime = input("How long (in seconds) would you like me to run for? ")
+while not runtime.isdigit():
+    print("That is not a valid input, please give a number with no commas")
+    runtime = input("How long (in seconds) would you like me to run for? ")
+
+
+interval = input("How long (in seconds) would you like me to wait in between buying upgrades? "
+                 "This will increase automatically as the game goes on : ")
+while not interval.isdigit():
+    print("That is not a valid input, please give a number with no commas")
+    interval = input("How long (in seconds) would you like me to wait in between buying upgrades? "
+                     "This will increase automatically as the game goes on : ")
+runtime = int(runtime)
+interval = int(interval)
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)  # Allows webpage to remain open when program finishes
@@ -40,23 +56,36 @@ def buy_upgrades():
     upgrade_dict[best_affordable]["link"].click()
 
 
-def cookies_per_second():
-    cps = driver.find_element(By.ID, "cps").text.split()[-1]
-    print(f"You made {cps} cookies per second, good job!")
+def check_score():
+    with open("high_score.txt", mode="r") as file:
+        high_score = int(file.read())
+    cps = int(driver.find_element(By.ID, "cps").text.split()[-1])
+
+    if cps > high_score:
+        high_score = cps
+        print(f"You made {cps} cookies per second, that's a new high score. Good Job!")
+    elif cps == high_score:
+        print(f"You made {cps} cookies per second, you matched the high score.")
+    else:
+        print(f"You made {cps} cookies per second, the high score is {high_score}. Have another try to beat it")
+
+    with open("high_score.txt", mode="w") as file:
+        file.write(str(high_score))
 
 
-runtime = 300   # [seconds] 300 for 5 minutes
-interval = 5
+upgrade_timer = 10
+
 time_start = time.time()
 
 
 while time.time() < time_start + runtime:
     cookie.click()
-    if int(time.time()) == int(time_start + interval):
+    if int(time.time()) == int(time_start + upgrade_timer):
         buy_upgrades()
-        interval = interval + 5
+        upgrade_timer = upgrade_timer + interval
+        interval = interval + 0.2
 
-cookies_per_second()
+check_score()
 
 
 
