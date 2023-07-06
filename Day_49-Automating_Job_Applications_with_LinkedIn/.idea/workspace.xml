@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81991e11-bba4-4700-bbd4-09ada7724a27" name="Changes" comment="" />
+    <list default="true" id="778f3127-7b0c-4da5-9655-7f1ec8500ced" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2JsKZV36eifF582SBFE1hh0zl38" />
+  <component name="ProjectId" id="2SDMc1rxdcQJ6tIggJMFgx0n49P" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -24,13 +24,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "F:/Python/Tutorials/100 Days of Code/Day_48-Selenium_Webdriver_&_Game_Playing_Bot/Cookie_Clicker_Project"
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="Snake-Game" />
+      <module name="Day_49-Automating_Job_Applications_with_LinkedIn" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -54,11 +53,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="81991e11-bba4-4700-bbd4-09ada7724a27" name="Changes" comment="" />
-      <created>1672861405131</created>
+      <changelist id="778f3127-7b0c-4da5-9655-7f1ec8500ced" name="Changes" comment="" />
+      <created>1688676773258</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1672861405131</updated>
+      <updated>1688676773258</updated>
     </task>
     <servers />
   </component>
